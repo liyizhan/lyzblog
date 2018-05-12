@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../ico/favicon.ico">
+    <title>Psion Space</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/project-artisan.css" rel="stylesheet">
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航栏</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Psion的星球</a>
+            <a class="navbar-brand" href="../others/LiYizhan_doc.pdf" target="_blank">个人简历下载</a>
+            <a class="navbar-brand" href="https://github.com/liyizhan/lyznote" target="_blank">Github笔记</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" method="post" onsubmit="return false" id="contactForm">
+                <div class="form-group">
+                    <input id="name" type="text" name="name" placeholder="您的称呼" class="form-control" pattern="^[\u4e00-\u9fa5]{2,20}$" title="请输入您的汉语名字" required>
+                </div>
+                <div class="form-group">
+                    <input id="contact" type="text" name="contact" placeholder="您的联系方式" class="form-control"
+                           pattern="^(((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8})|([a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+)|(0\d{2,3}-\d{7,8})$"
+                           title="请输入您的电话号码或者电子邮箱" required>
+                </div>
+                <button type="submit" class="btn btn-success">我会联系您</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">通知</h4>
+            </div>
+            <div class="modal-body" id="sendModalContent">
+                我已收到您的联系方式，我会尽快联系您。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Artisan<small>&nbsp;&nbsp;一款从设计师出发的Android App</small></h1>
+        <p><a href="https://github.com/SweetOrangeJuice/Artisan" target="_blank">See in Github</a></p>
+    </div>
+    <!-- 明天换成音频-->
+    <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="../img/artisan/s1.jpg" alt="First slide">
+        </div>
+        <div class="item">
+            <img src="../img/artisan/s2.jpg" alt="Second slide">
+        </div>
+        <div class="item">
+            <img src="../img/artisan/s3.jpg" alt="Third slide">
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="text-center" ><b>简介</b></h4>
+            <hr>
+            <p>《匠心》是基于Android平台的设计类产品图文分享交流平台，用户之间通过发布、查看、评论涵盖设计内容的动态进行互动，从而发现身边的精美设计。</p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="text-center"><b>项目来源</b></h4>
+            <hr>
+            <p>
+                参加校内Android开发大赛后，开发者思考到目前的微信、微博平台内传播的内容没有进行垂直细分，而在参照如pixiv、keep之类的垂直细分平台类应用之后，发现根据特定产品（如图片、健身等）构建的交流和分享社区受到关注的可能性大。当前市面上对设计类专业学生专门构建的作品分享和众筹平台数量很少。因此开发工作就往此方向进行靠拢。
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="text-center"><b>项目架构</b></h4>
+            <hr>
+            <p class="text-center">
+                原生Android开发+LeanCloud云后端。
+            </p>
+        </div>
+    </div>
+    <br/>
+    <hr>
+    <div class="row">
+        <h3 class="bg-info">亮点A：游客态与登录态之间的无缝浏览体验</h3>
+        <div class="col-md-4">
+            <ul class="list-good">
+                <li class="list-good-li">游客无需登录，即可体验Artisan的绝大部分功能，避免用户在对App产生兴趣之前会因为注册流程的设置流失兴趣。</li>
+                <li class="list-good-li">用户也无需关心游客态下自己是否受限过多，Artisan这款App不会设置过多需要登录态的限制，对于需要登录态的操作也会以合适的方式进行提醒。</li>
+                <li class="list-good-li">正如上一条所说一致，游客除第一次登录，每次启动App都不要求登录操作，Artisan从不烦扰用户。</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <img src="../img/artisan/good-a-1.jpg" alt="登录页面" class="center-block" height="450">
+        </div>
+        <div class="col-md-4">
+            <img src="../img/artisan/good-a-2.jpg" alt="游客个人页" class="center-block" height="450">
+        </div>
+    </div>
+
+    <div class="row">
+        <h3 class="bg-info">亮点B：用户想要分享作品就跟发送朋友圈一样简单</h3>
+        <div class="col-md-4">
+            <img src="../img/artisan/good-b-1.png" alt="发布动态" class="center-block" height="450">
+        </div>
+        <div class="col-md-4">
+            <ul class="list-good">
+                <li class="list-good-li">中国微信用户熟悉朋友圈的操作，在一个新的App进入用户手里，熟悉相似的操作将会降低熟悉App的门槛。</li>
+                <li class="list-good-li">位于底部导航栏的发布按钮，点击后直接进入发布动态页，可以快速传递用户的需求。</li>
+                <li class="list-good-li">发布动态的途径多，包括即时打开摄像头拍摄与从本地图库上传。</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <div class="row">
+        <h3 class="bg-info">亮点C：Lean Cloud公司长期支持的云后端服务提供了数据基石</h3>
+        <div class="col-md-4">
+            <ul class="list-good">
+                <li class="list-good-li">Lean Cloud的AVOS云后端服务原来入口在腾讯云处，自从腾讯云解除了与Lean Cloud的合作后，Artisan的后端在1年的时间内仍然没有受到影响。</li>
+                <li class="list-good-li">AVOS SDK在Android平台上具有易用性，为我的开发工作省去了许多繁琐操作。</li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <img src="../img/artisan/good-c-1.jpg" alt="Lean Cloud" class="center-block" width="400">
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2018 LiYizhan, 1062585732@qq.com, +8613480596417.</p>
+    </footer>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../ico/favicon.ico">
+    <title>Psion Space</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/project-leave-system.css" rel="stylesheet">
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航栏</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Psion的星球</a>
+            <a class="navbar-brand" href="../others/LiYizhan_doc.pdf" target="_blank">个人简历下载</a>
+            <a class="navbar-brand" href="https://github.com/liyizhan/lyznote" target="_blank">Github笔记</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" method="post" onsubmit="return false" id="contactForm">
+                <div class="form-group">
+                    <input id="name" type="text" name="name" placeholder="您的称呼" class="form-control" pattern="^[\u4e00-\u9fa5]{2,20}$" title="请输入您的汉语名字" required>
+                </div>
+                <div class="form-group">
+                    <input id="contact" type="text" name="contact" placeholder="您的联系方式" class="form-control"
+                           pattern="^(((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8})|([a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+)|(0\d{2,3}-\d{7,8})$"
+                           title="请输入您的电话号码或者电子邮箱" required>
+                </div>
+                <button type="submit" class="btn btn-success">我会联系您</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">通知</h4>
+            </div>
+            <div class="modal-body" id="sendModalContent">
+                我已收到您的联系方式，我会尽快联系您。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>请假小程序<small><small>&nbsp;&nbsp;电子请假凭证与纸质请假凭证集成的微信小程序</small></small></h1>
+        <p>目前状态：开发了80%</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h4 class="text-center" ><b>简介</b></h4>
+            <hr>
+            <p>
+                学生打开请假小程序，输入自己所需的信息，即可实现远端请假；<br/>
+                任课老师打开请假小程序，扫一扫凭证上的二维码，即可扫描出学生请假的内容与审批结果；<br/>
+                辅导员登录小程序附带的办公系统，即可批量审批请假申请，结果由电子邮件传递到学生邮箱。<br/>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="text-center"><b>项目来源</b></h4>
+            <hr>
+            <p>
+                请假小程序是我和校内易班工作站合作研发的一款微信小程序，是自己生病时没法在宿舍进行请假而萌生的想法。
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h4 class="text-center"><b>项目架构</b></h4>
+            <hr>
+            <ul>
+                <li>Spring+SpringMVC+MyBatis</li>
+                <li>微信小程序</li>
+                <li>jQuery+lay UI</li>
+            </ul>
+        </div>
+    </div>
+    <br/>
+    <hr>
+
+    <h3 class="bg-info">项目详细架构</h3>
+    <br/>
+    <img src="../img/leave-system/mind.jpg" alt="架构图">
+    <br/>
+    <p class="text-center"><b>架构图</b></p>
+    <p class="text-center"><a href="../others/mind.xmind" >点击此处下载详细架构图</a></p>
+
+    <div class="row">
+        <h3 class="bg-info">维护微信小程序的登录态和后端服务器的登录态</h3>
+        <div class="col-md-6">
+            <pre>
+public String getSessionId(String code) throws InputException,ServerInternalException{
+    String openId= null;
+    try {
+        openId = getOpenId(code);
+    } catch (InputException|ServerInternalException e) {
+        throw e;
+    }
+    HttpSession session = ((ServletRequestAttributes) RequestContextHolder
+            .getRequestAttributes())
+            .getRequest()
+            .getSession();
+    //返回sessionId
+    String sessionId=session.getId();
+    session.setAttribute("openId",openId);
+    session.setMaxInactiveInterval(60*30);
+    return sessionId;
+}
+
+private String getOpenId(String code) throws InputException,ServerInternalException{
+    if(null==code||"".equals(code)){
+        throw new InputException();
+    }
+    String openId=null;
+    String url="https://api.weixin.qq.com/sns/jscode2session" +
+            "?appid=" + appId +
+            "&secret=" + secret +
+            "&js_code=" + code +
+            "&grant_type=authorization_code";
+    try{
+        String response= HttpUtil.synSendHttpRequest(url);
+        ClientInfo clientInfo=new Gson().fromJson(response,ClientInfo.class);
+        openId=clientInfo.getOpenId();
+    }catch (Exception e){
+        throw new ServerInternalException(e.getMessage());
+    }
+    //如果获取oepnId成功
+    return openId;
+}
+            </pre>
+            <p class="text-center"><b>服务器管理登录态代码</b></p>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-good">
+                <li class="list-good-li">
+                    首先，微信小程序上对微信服务器发起<code>wx.login()</code>换取微信服务器登陆凭证<code>code</code>，然后携带<code>code</code>访问我的服务器登录接口，
+                    服务器将拿<code>code</code>访问微信服务器换取用户的<code>openId</code>，随后生成一定时限的服务器<code>session</code>保留用户的<code>openId</code>，以及返回该<code>session</code>的id到小程序。
+                </li>
+                <li class="list-good-li">小程序下次访问需要登录态的接口时，把拿到的<code>sessionId</code>以附在Cookie里的形式发送上来，服务器能识别出此次访问是哪个登录态，具体Cookie：<code>JSESSIONID=&lt;sessionId&gt;</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <h3 class="bg-info">IP获取与高频访问拦截</h3>
+        <div class="col-md-6">
+            <pre>
+private static String getIp(HttpServletRequest request){
+    String ip = request.getHeader("x-forwarded-for");
+    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        ip = request.getHeader("Proxy-Client-IP");
+    }
+    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        ip = request.getHeader("WL-Proxy-Client-IP");
+    }
+    if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+        ip = request.getRemoteAddr();
+        if(ip.equals("127.0.0.1") || ip.equals("0:0:0:0:0:0:0:1")){
+            //根据网卡取本机配置的IP
+            InetAddress inet=null;
+            try {
+                inet = InetAddress.getLocalHost();
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+            ip= inet.getHostAddress();
+        }
+    }
+    //对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割
+    if(ip!=null && ip.length()>15){ //"***.***.***.***".length() = 15
+        if(ip.indexOf(",")>0){
+            ip = ip.substring(0,ip.indexOf(","));
+        }
+    }
+    return ip;
+}
+
+private static boolean isBreakPool(HttpServletRequest request,Map&lt;String,Integer&gt; pool,Object lock,int limit){
+    String ip=getIp(request);
+    if(ip == null || ip.length() == 0 ||"unknown".equalsIgnoreCase(ip)){
+        return true;    //未知ip不支持
+    }
+    boolean isBreak=false;
+    synchronized (lock){
+        Integer count=pool.get(ip);
+        if(count!=null){
+            count=count+1;
+            if(count>limit){
+                isBreak=true;
+            }
+            pool.put(ip,count);
+        }else{
+            count=1;
+            pool.put(ip,count);
+        }
+    }
+    return isBreak;
+}
+            </pre>
+            <p class="text-center">获取IP与入侵池代码</p>
+        </div>
+        <div class="col-md-6">
+            <ul class="list-good">
+                <li class="list-good-li">
+                    为了获取到用户的真实IP地址，需要对HTTP包头进行解析，去除代理的影响。
+                </li>
+                <li class="list-good-li">
+                    对于高频访问，我设置了一个<code>HashMap</code>记录了用户的IP地址和访问次数的关系，假如用户访问超过了规定的次数，用户的访问将会被服务器拒绝。为了服务器性能的考虑，<code>HashMap</code>将每隔一天的时间清空一次所有内容。
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2018 LiYizhan, 1062585732@qq.com, +8613480596417.</p>
+    </footer>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../ico/favicon.ico">
+    <title>Psion Space</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/personal-info.css" rel="stylesheet">
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">导航栏</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Psion的星球</a>
+            <a class="navbar-brand" href="../others/LiYizhan_doc.pdf" target="_blank">个人简历下载</a>
+            <a class="navbar-brand" href="https://github.com/liyizhan/lyznote" target="_blank">Github笔记</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" method="post" onsubmit="return false" id="contactForm">
+                <div class="form-group">
+                    <input id="name" type="text" name="name" placeholder="您的称呼" class="form-control" pattern="^[\u4e00-\u9fa5]{2,20}$" title="请输入您的汉语名字" required>
+                </div>
+                <div class="form-group">
+                    <input id="contact" type="text" name="contact" placeholder="您的联系方式" class="form-control"
+                           pattern="^(((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8})|([a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+)|(0\d{2,3}-\d{7,8})$"
+                           title="请输入您的电话号码或者电子邮箱" required>
+                </div>
+                <button type="submit" class="btn btn-success">我会联系您</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">通知</h4>
+            </div>
+            <div class="modal-body" id="sendModalContent">
+                我已收到您的联系方式，我会尽快联系您。
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <a name="top"></a>
+        <img class="img-circle center-block" src="../img/head-portrait.jpg" alt="我的头像" width="140" height="140"><br/>
+        <p class="text-center" style="font-size: xx-large;"><strong>李易沾</strong></p>
+        <p class="text-center">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span> 广东工业大学&nbsp;&nbsp;计算机科学与技术专业&nbsp;&nbsp;19届本科生
+        </p>
+        <p class="text-center">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <a href="mailto:1062585732@qq.com">1062585732@qq.com</a>&nbsp;&nbsp;&nbsp;
+            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span> 13480596417
+        </p>
+        <p class="text-center">
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 目前状态：腾讯TEG运营开发实习生
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9" role="main">
+            <a name="skills"></a>
+            <h3 class="bg-info">IT技能</h3><br/>
+            <h4>Java</h4>
+            <hr>
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>Java SE:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                            80%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉Java面向对象编程，具有良好Java基础，能面向接口编程，写出易扩展易维护的代码；<br/>
+                        熟悉常用Java集合框架，多线程框架，了解序列化机制；<br/>
+                        熟悉OkHttp、JDBC、IO流、泛型。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>Java EE:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                            65%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉基于Tomcat进行Servlet和JSP进行Java Web开发.
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>Spring:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                            75%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        理解Spring Framework中IOC和AOP思想；<br/>
+                        熟悉基于SpringMVC、SpringBoot进行开发。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>JVM:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                            75%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        理解Java内存模型；<br/>
+                        理解Java垃圾收集机制；<br/>
+                        理解类加载机制与双亲委托模型。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <h4>数据库</h4>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>MySQL:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                            80%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉SQL语句的编写；<br/>
+                        理解MySQL事务机制，索引机制；<br/>
+                        了解MySQL InnoDB和MyIsam引擎的异同.
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>MyBatis:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                            65%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉MyBatis下SQL语句的编写。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>Redis:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                            60%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        能够使用Jedis对Redis进行操作；<br/>
+                        了解Redis的常见使用情景。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <h4>数据结构与算法</h4>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>数据结构:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                            70%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉数组、栈、队列、链表和哈希表线性数据结构；<br/>
+                        熟悉二叉查找树、AVL树、B树和森林树形结构；<br/>
+                        熟悉有（无）向（权）图。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>算法:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                            65%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉常见的排序算法；<br/>
+                        熟悉常见的搜索算法。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <h4>网络</h4>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>计算机网络:</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">
+                            75%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉HTTP与HTTPS；<br/>
+                        熟悉TCP/IP五层协议栈。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <h4>前端开发</h4>
+            <hr>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <strong>HTML5&CSS3&JavaScript</strong>
+                </div>
+                <div class="col-md-3">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-info active" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                            60%
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        熟悉基于HTML5+CSS3+jQuery进行网页开发；<br/>
+                        熟悉AJAX；<br/>
+                        了解Vue.js、Bootstrap3。
+                    </p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            <br/>
+
+            <a name="projects"></a>
+            <h3 class="bg-info">项目经验</h3><br/>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Incolor电子商城</h2>
+                    <img src="../img/incolor/logo.png" alt="Incolor pic" class="project-list-img">
+                    <p> Incolor电子商城是一款专注于售卖定制单车的网站。在项目中我主要负责微信支付、支付宝支付和七牛云对象存储相关的业务逻辑开发工作。</p><br/>
+                    <p><a class="btn btn-default" href="#" role="button" data-toggle="modal" data-target="#incolorModal">查看详情 &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>请假小程序</h2>
+                    <img src="../img/leave-system/logo.png" alt="Leave System pic" class="project-list-img-2">
+                    <p>请假小程序致力于解决广工学子请假困难的问题。本次项目给予我接触微信小程序的机会，并且项目本身性质的要求使我学习了软件安全与服务器性能相关的知识。</p><br/>
+                    <p><a class="btn btn-default" href="project-leave-system.html" role="button">查看详情 &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>Artisan</h2>
+                    <img src="../img/artisan/logo.png" alt="Artisan pic" class="project-list-img">
+                    <p>匠心是我与好友学习Android开发时完成的一款Android App，期间我接触了Lean Cloud云后端，它激发了我学习后端的热情。</p><br/>
+                    <p><a class="btn btn-default" href="project-artisan.html" role="button">查看详情 &raquo;</a></p>
+                </div>
+            </div>
+
+            <a name="awards"></a>
+            <h3 class="bg-info">奖项</h3>
+            <div class="row">
+                <br/>
+                <div class="col-md-2">
+                    <img src="../img/gdut.jpg" class="award-img">
+                </div>
+                <div class="col-md-4">
+                    <br/>2015-2017 校内二等奖学金
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <div class="row">
+                <br/>
+                <div class="col-md-2">
+                    <img src="../img/android.jpg" class="award-img">
+                </div>
+                <div class="col-md-5">
+                    <br/>2016.5 自动化学院第一届Android大赛三等奖
+                </div>
+                <div class="col-md-5">
+                </div>
+            </div>
+
+            <a name="exps"></a>
+            <h3 class="bg-info">经历</h3>
+            <div class="row">
+                <div class="col-md-8">
+                    <b>2018.04 - 至今&nbsp;&nbsp;校内Java问答社区公众号团队&nbsp;&nbsp;编辑</b>
+                    <br/>
+                    负责回答微信用户提交的Java问题以及编写Java技术相关推文。<br/><br/>
+                    <b>2018.01 - 2018.02&nbsp;&nbsp;广东嘉泰科技有限公司&nbsp;&nbsp;Java研发实习生</b>
+                    <br/>
+                    八斗教育后台管理网站代码维护、优化、测试、二次开发；<br/>
+                    八斗教育微信家长端、教师端代码维护、优化、测试、二次开发；<br/>
+                    八斗教育硬件后端接口设计、开发、测试、文档编写。<br/><br/>
+                    <b>2018.01 - 至今&nbsp;&nbsp;广东工业大学易班工作站技术部&nbsp;&nbsp;合伙人</b>
+                    <br/>
+                    主导广东工业大学校内请假小程序、请假管理系统的立项、人员安排、进度管理及后端开发工作.<br/><br/>
+                    <b>2015.10 - 2017.06&nbsp;&nbsp;广东工业大学青年创新创业协会策划部部长</b>
+                    <br/>
+                    主导协会对内对外的活动策划工作，协会内部分享会的发起人与主持人。
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-1"></div>
+        <div class="col-md-1" role="complementary">
+            <nav class="hidden-print hidden-xs hidden-sm affix">
+                <ul class="nav nav-stacked border-ul" >
+                    <li role="presentation"><a href="#skills">熟悉的技能</a></li>
+                    <li role="presentation"><a href="#projects">项目</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-1" role="complementary">
+            <nav class="hidden-print hidden-xs hidden-sm affix">
+                <ul class="nav nav-stacked border-ul" >
+                    <li role="presentation"><a href="#awards">奖项</a></li>
+                    <li role="presentation"><a href="#exps">经历</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="modal fade" id="incolorModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="incolorModalLabel">抱歉</h4>
+                </div>
+                <div class="modal-body">
+                    由于甲方的要求，项目细节暂时未能公开。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2018 LiYizhan, 1062585732@qq.com, +8613480596417.</p>
+    </footer>
+</div>
+
+<script src="../js/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="../js/header.js"></script>
+</body>
+</html>

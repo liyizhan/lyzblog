@@ -1,0 +1,21 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.jumbotron{
+    background: #c1eeff;
+}
+
+.project-list-img {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 120px;
+}
+
+.project-list-img-2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 120px;
+    width: 240px;
+}

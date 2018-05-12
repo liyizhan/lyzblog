@@ -1,0 +1,30 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.jumbotron {
+    background: #c1eeff;
+}
+
+.border-ul {
+    background: #e5ffff;
+    border-radius: 10px;
+}
+
+.project-list-img {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 120px;
+}
+
+.project-list-img-2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    height: 120px;
+    width: 240px;
+}
+
+.award-img {
+    height: 80px;
+}
